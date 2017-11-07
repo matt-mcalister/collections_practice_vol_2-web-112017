@@ -35,7 +35,14 @@ def count_elements(array)
 end
 
 def merge_data(keys,values)
-  binding.pry
+  result = []
+  keys.each do |first, name|
+    data.each do |name2, subdata|
+      subdata[first] = name
+      result << subdata
+    end
+  end
+  result
 end
 
 def find_cool(cool)
