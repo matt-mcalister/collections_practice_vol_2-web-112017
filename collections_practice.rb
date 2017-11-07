@@ -38,13 +38,15 @@ def merge_data(keys,values)
   result = []
   keys.each do |hash|
     hash.each do |first, name|
+      result_hash = {first => name}
       values.each do |subhash|
         subhash.each do |name2, subdata|
-          # binding.pry
-          subdata[first] = name
-          result << subdata
+          subdata.each do |descriptor, stat|
+            result_hash[descriptor] = stat
+          end
         end
       end
+      result << result_hash
     end
   end
   result
