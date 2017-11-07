@@ -36,11 +36,15 @@ end
 
 def merge_data(keys,values)
   result = []
-  keys.each do |first, name|
-    values.each do |name2, subdata|
-      binding.pry
-      subdata[first] = name
-      result << subdata
+  keys.each do |hash|
+    hash.each do |first, name|
+      values.each do |subhash|
+        subhash.each do |name2, subdata|
+          binding.pry
+          subdata[first] = name
+          result << subdata
+        end
+      end
     end
   end
   result
