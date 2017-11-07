@@ -49,8 +49,7 @@ def merge_data(keys,values)
       end
     end
   end
-  result.uniq
-  
+  result
 end
 
 def find_cool(cool)
