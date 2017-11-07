@@ -19,24 +19,17 @@ end
 def count_elements(array)
   result = []
   array.each do |hash|
-    sub_hash = {}
     hash.each do |name, value|
-      if result.empty?
-        sub_hash = {name => value, :count => 1}
-        result << sub_hash
-      else
-        result.each do |subhash|
-          if subhash.values.include?(value)
-            subhash[:count] += 1
-          else
-            sub_hash = {name => value, :count => 1}
-            result << sub_hash
-          end
+      result.each do |subhash|
+        if subhash.values.include?(name)
+          subhash[:count] += 1
+        else
+          result << {name: name, count: 1}
         end
       end
     end
   end
-result
+  result
 end
 
 def merge_data(keys,values)
