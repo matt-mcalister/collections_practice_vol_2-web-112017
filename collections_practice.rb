@@ -44,7 +44,7 @@ def merge_data(keys,values)
           subdata.each do |descriptor, stat|
             result_hash[descriptor] = stat
           end
-          binding.pry
+          # binding.pry
           result << result_hash
         end
       end
