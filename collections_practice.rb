@@ -46,7 +46,7 @@ def find_cool(cool)
   result = []
   cool.each do |hash|
     hash.each do |k,v|
-      if v.include?("cool")
+      if v == "cool"
         result << hash
       end
     end
