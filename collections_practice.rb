@@ -37,7 +37,7 @@ end
 def merge_data(keys,values)
   result = []
   keys.each do |first, name|
-    data.each do |name2, subdata|
+    values.each do |name2, subdata|
       subdata[first] = name
       result << subdata
     end
