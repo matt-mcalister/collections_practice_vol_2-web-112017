@@ -40,12 +40,13 @@ def merge_data(keys,values)
     hash.each do |first, name|
       values.each do |subhash|
         subhash.each do |name2, subdata|
-          result_hash = {first => name}
-          subdata.each do |descriptor, stat|
-            result_hash[descriptor] = stat
+          if !(result.any? {|el| el.values.include?(name)})
+            result_hash = {first => name}
+            subdata.each do |descriptor, stat|
+              result_hash[descriptor] = stat
+            end
+            result << result_hash
           end
-          # binding.pry
-          result << result_hash
         end
       end
     end
