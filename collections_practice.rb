@@ -20,11 +20,13 @@ def count_elements(array)
   result = []
   array.each do |hash|
     hash.each do |name, value|
-      result.each do |subhash|
-        if hash.values.include?(name)
-          hash[:count] += 1
-        else
-          result << {name: value, count: 1}
+      if !(result.any? {|el| el.values.include?(value)})
+        result << {name: value, count: 1}
+      else
+        result.each do |el|
+          if el.values.include?(value)
+            el[:count] += 1
+          end
         end
       end
     end
