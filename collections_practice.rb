@@ -21,11 +21,10 @@ def count_elements(array)
   array.each do |hash|
     hash.each do |name, value|
       result.each do |subhash|
-        binding.pry
-        if subhash.values.include?(name)
-          subhash[:count] += 1
+        if hash.values.include?(name)
+          hash[:count] += 1
         else
-          result << {name: name, count: 1}
+          result << {name: value, count: 1}
         end
       end
     end
