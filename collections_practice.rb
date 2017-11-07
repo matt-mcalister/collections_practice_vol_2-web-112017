@@ -40,7 +40,7 @@ def merge_data(keys,values)
     hash.each do |first, name|
       values.each do |subhash|
         subhash.each do |name2, subdata|
-          if first == name2
+          if name == name2
             result_hash = {first => name}
             subdata.each do |descriptor, stat|
               result_hash[descriptor] = stat
